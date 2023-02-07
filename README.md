@@ -62,6 +62,7 @@ Five functions are implemented on this repo.
    **Shell Usage:**
    
    Function select add blog, enter blog_id, author and content respectively, and click submit on the website
+   
    OR
    
    ```bash
@@ -107,6 +108,7 @@ Five functions are implemented on this repo.
    **Shell Usage:**
    
    Function select add comment, enter blog_id, author and content respectively, and click submit on the website
+   
    OR
    
    ```shell
@@ -130,6 +132,7 @@ Five functions are implemented on this repo.
    **Shell Usage:**
    
    Function select delete comment, enter blog_id (optional) and author (optional) respectively, and click submit on the website
+   
    OR
    
    ```shell
@@ -160,6 +163,8 @@ Five functions are implemented on this repo.
    ```
 
 ## Example Video
+
+see the example video: demo.mp4
 
 ```html
 <video id="video" controls="" preload="auto">
