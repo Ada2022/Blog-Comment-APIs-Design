@@ -37,8 +37,9 @@ def add_comment(conn, blog_id, author, content):
         return False
 
     last_id = pd.read_sql_query(
-        "SELECT * FROM comments WHERE blog_id = ? ", conn, params=(blog_id, ))
+        "SELECT id FROM comments", conn) 
     last_id = -1 if last_id.empty else last_id.index[-1]
+
 
     cursor.execute("""
     INSERT INTO comments (id, blog_id, author, time_stamp, content)
@@ -93,7 +94,6 @@ def delete_comment(conn, blog_id=None, author=None, time_stamp=None):
         params.append(time_stamp)
     if conditions:
         query += " WHERE " + " AND ".join(conditions)
-
     cursor = conn.cursor()
     cursor.execute(query, params)
     conn.commit()

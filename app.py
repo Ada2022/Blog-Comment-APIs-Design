@@ -69,8 +69,9 @@ def show_comment_api(blog_id, author):
 
 @app.route("/", methods=["DELETE"])
 def delete_comment_api(blog_id, author):
-    blog_id = request.args.get("blog_id")
-    author = request.args.get("author")
+    if len(blog_id) == 0:blog_id = None
+    if len(author) == 0:author = None  
+    print("hey", blog_id, author)
     conn = sqlite3.connect(DB_FILE)
     delete_comment(conn, blog_id, author)
     return "Comment Deleted", 200
