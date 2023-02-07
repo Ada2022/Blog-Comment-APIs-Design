@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Blog Comment APIs</title>
+    </head>
+    <body>
+        <form method="POST">
+            Function:
+            <select name="function">
+                <option value="add_blog">Add Blog</option>
+                <option value="show_blog">Show Blog</option>
+                <option value="add_comment">Add Comment</option>
+                <option value="show_comment">Show Comment</option>
+                <option value="delete_comment">Delete Comment</option>
+            </select>
+            <br><br>
+            Blog ID: <input type="text" name="blog_id"><br>
+            Author: <input type="text" name="author"><br>
+            Content: <input type="text" name="content"><br>
+            <input type="submit" value="Submit">
+        </form>
+        {% if function == 'show_blog' and data %}
+        <h2>Blogs:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Blog ID</th>
+                    <th>Author</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for blog in data %}
+                <tr>
+                    <td>{{ blog[1] }}</td>
+                    <td>{{ blog[2] }}</td>
+                    <td>{{ blog[3] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        {% if function == 'show_comment' and data %}
+        <h2>Comments:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Blog ID</th>
+                    <th>Author</th>
+                    <th>TimeStamp</th>
+                    <th>Content</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for comment in data %}
+                <tr>
+                    <td>{{ comment[1] }}</td>
+                    <td>{{ comment[2] }}</td>
+                    <td>{{ comment[3] }}</td>
+                    <td>{{ comment[4] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </body>
+</html>
